@@ -1,33 +1,58 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
-export default function RecipeCard({ meal, isFav, onToggleFav }) {
+const RecipeCard = ({ recipe, onClick, isFavorite = false, onAddToFavorites, onRemoveFromFavorites }) => {
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    if (isFavorite && onRemoveFromFavorites) {
+      onRemoveFromFavorites();
+    } else if (onAddToFavorites) {
+      onAddToFavorites();
+    }
+  };
+
+  const showFavoriteButton = onAddToFavorites || onRemoveFromFavorites;
+
   return (
-    <div className="border rounded overflow-hidden shadow-sm bg-white flex flex-col">
-      <Link to={`/meal/${meal.idMeal}`} className="block">
-        <img src={meal.strMealThumb} alt={meal.strMeal} className="w-full h-48 object-cover" />
-      </Link>
-      <div className="p-4 flex-1 flex flex-col">
-        <Link to={`/meal/${meal.idMeal}`} className="flex-1">
-          <h4 className="font-semibold text-lg">{meal.strMeal}</h4>
-          <p className="text-sm text-gray-500 mt-1">
-            {meal.strCategory || "Category"} • {meal.strArea || "Cuisine"}
-          </p>
-        </Link>
-
-        <div className="mt-4 flex items-center justify-between">
-          <Link to={`/meal/${meal.idMeal}`} className="text-sm text-emerald-600 hover:underline">View details</Link>
-
+    <div 
+      onClick={onClick}
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+    >
+      <div className="relative">
+        <img 
+          src={recipe.strMealThumb} 
+          alt={recipe.strMeal}
+          className="w-full h-48 object-cover rounded-t-xl"
+        />
+        {showFavoriteButton && (
           <button
-            onClick={onToggleFav}
-            className="text-sm px-3 py-1 border rounded hover:bg-gray-100"
-            aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
-            type="button"
+            onClick={handleFavoriteClick}
+            className="absolute top-3 right-3 p-2 bg-white dark:bg-gray-700 rounded-full shadow-md hover:scale-110 transition-transform"
           >
-            {isFav ? "★ Favorited" : "☆ Favorite"}
+            {isFavorite ? '❤️' : '🤍'}
           </button>
+        )}
+      </div>
+      
+      <div className="p-4">
+        <h3 className="font-bold text-lg mb-2 text-gray-900 dark:text-white line-clamp-1">
+          {recipe.strMeal}
+        </h3>
+        
+        <div className="flex flex-wrap gap-2 mb-3">
+          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">
+            {recipe.strCategory}
+          </span>
+          <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">
+            {recipe.strArea}
+          </span>
         </div>
+        
+        <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-2">
+          Click to view recipe details, ingredients, and instructions.
+        </p>
       </div>
     </div>
   );
-}
+};
+
+export default RecipeCard;
