@@ -1,16 +1,87 @@
-# React + Vite
+🍳 Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive web app that allows users to search for recipes by name and view quick details such as ingredients and preparation steps.
+Built with React, Vite, and Tailwind CSS, this project demonstrates core frontend development concepts — API integration, component structure, and modern UI design.
 
-Currently, two official plugins are available:
+FEATURES
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Recipe Search: Search for recipes using keywords.
 
-## React Compiler
+Recipe Details: Displays ingredients and cooking instructions.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Responsive Design: Fully responsive and mobile-friendly layout.
 
-## Expanding the ESLint configuration
+Fast Setup: Built using Vite for lightning-fast development and builds.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Styled with Tailwind CSS 4: Modern, utility-first CSS styling.
+
+ INSTALLATION AND SETUP
+
+1. Clone the repository
+git clone https://github.com/<Orealtoke>/My-FE-Final-PRoject.git
+
+2. npm create vite@latest recipe-finder -- --template react
+cd recipe-finder
+
+3. Install dependencies
+npm install
+
+4. Run the development server
+npm run dev
+
+
+Then open my browser at http://localhost:5173
+
+
+🛠️ Tech Stack
+Technology	Purpose
+React	Component-based UI library
+Vite	Frontend build tool and dev server
+Tailwind CSS v4	Utility-first styling framework
+TheMealDB API (or similar)	Public recipe data source
+📂 Project Structure
+recipe-finder/
+├── index.html
+├── package.json
+├── postcss.config.cjs
+├── tailwind.config.cjs
+├── vite.config.js
+├── /src
+│   ├── main.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   ├── /components
+│   │   ├── SearchBar.jsx
+│   │   ├── RecipeCard.jsx
+│   │   └── RecipeList.jsx
+│   └── /assets
+└── /public
+
+
+🧠 How It Works
+
+User enters a recipe name in the search bar.
+
+App fetches data from a public recipe API (like TheMealDB
+).
+
+Results are displayed as interactive recipe cards.
+
+Clicking on a card shows more information (optional feature).
+
+📸 Screenshots
+
+(Add images later after UI is complete)
+Example:
+
+🧑‍💻 Author
+
+Khadijat Oritoke Animashaun
+Frontend Engineer (ALX Program)
+🔗 GitHub
+
+💬 Passionate about building clean, responsive, and user-friendly web applications.
+
+📜 License
+
+This project is open source and available under the MIT License.
