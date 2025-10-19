@@ -18,9 +18,8 @@ function App() {
   const [shoppingList, setShoppingList] = useState([]);
   const [activeCategory, setActiveCategory] = useState('');
   const [darkMode, setDarkMode] = useState(false);
-  const [activeView, setActiveView] = useState('home'); // home, search, favorites, shopping, about
+  const [activeView, setActiveView] = useState('home');
 
-  // Load data from localStorage on component mount
   useEffect(() => {
     const savedFavorites = localStorage.getItem('recipeFavorites');
     const savedShoppingList = localStorage.getItem('recipeShoppingList');
@@ -31,7 +30,6 @@ function App() {
     if (savedDarkMode) setDarkMode(JSON.parse(savedDarkMode));
   }, []);
 
-  // Save to localStorage when state changes
   useEffect(() => {
     localStorage.setItem('recipeFavorites', JSON.stringify(favorites));
   }, [favorites]);
