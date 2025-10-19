@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
+import RecipeCard from './components/RecipeCard';
 import RecipeDetails from './components/RecipeDetails';
 import FavoritesList from './components/FavoritesList';
 import ShoppingList from './components/ShoppingList';
